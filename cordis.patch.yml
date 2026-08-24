@@ -1,0 +1,5 @@
+# dsh-event-relay: one SSE channel from host events to every browser surface.
+# The missing transport only — Cordis events remain the host-side bus.
+- insert:
+    - id: event-relay
+      name: dsh-event-relay
