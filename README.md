@@ -16,14 +16,27 @@ relay.forward('my/event')                      // tap an existing Cordis event (
 
 ```js
 const relay = ctx.get('eventRelay')            // provided by this package's client half
-const off = relay.subscribe('kanban', (topic, payload) => { ... })  // prefix match
+const off = relay.subscribe('kanban', (topic, payload) => { ... })  // payload optional
 // or raw: new EventSource('/relay/events?topics=kanban,notifications')
 ```
+
+`payload` in the callback is whatever the publisher passed. Apply it directly
+or ignore it and refetch your own truth — both are first-class styles (below).
 
 ## Design
 
 Transport, not a bus: Cordis events remain the host-side event system; this
-only carries them across the plane boundary. Liveness, not correctness —
-consumers should fall back to pull-on-focus when the relay is absent.
+only carries them across the plane boundary.
+
+Payload is optional, not doorbell-only. Some plugins use the relay purely as a
+change signal — a topic-only frame that tells them to refetch their own truth.
+Others consume the payload directly: the notifications demo pushes the
+notification itself, a kanban board pushes change frames. `publish(topic,
+payload)` — send whatever is useful; doorbells are one usage style, not the
+contract.
+
+Liveness, not correctness: the relay may be absent, and a consumer should
+fall back to pull-on-focus (or pull on `__relay/open`) rather than depend on
+the stream for state.
 Route roots are composition-level contracts (`/api`, `/plugins`,
 `/workspace-history`, `/notifications`, `/granular-settings` are taken).
