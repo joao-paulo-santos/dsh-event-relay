@@ -9,7 +9,7 @@ JSON frames `{"topic","payload"}` as things happen.
 ```js
 const relay = ctx.get('eventRelay')            // optional — degrade if absent
 relay.publish('my-topic', payload)             // direct
-relay.forward('my/event')                      // tap an existing Cordis event (idempotent)
+ctx.on('my/event', (data) => relay.publish('my/event', data))   // mirror a Cordis event (do this in your plugin)
 ```
 
 ## Consumers (browser bundles)
