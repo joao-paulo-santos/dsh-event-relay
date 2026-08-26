@@ -137,4 +137,4 @@ None
 
 ## Plugins dependent on this
 
-- [dsh-granular-settings](https://github.com/joao-paulo-santos/dsh-granular-settings) — publishes doorbell-only change notifications for its scoped settings platform
+- [dsh-granular-settings](https://github.com/joao-paulo-santos/dsh-granular-settings) publishes doorbell-only change notifications for its scoped settings platform
