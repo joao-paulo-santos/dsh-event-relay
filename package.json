@@ -1,6 +1,6 @@
 {
   "name": "dsh-event-relay",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Event relay: one shared SSE channel pushing host-side events to subscribed browser surfaces. Frames carry an optional JSON payload — some plugins use it as a pure change signal (doorbell style, refetching their own truth), others consume the payload directly (notifications, kanban updates). Client opens the stream with the union of subscribed topic prefixes (server-side filtering) and signals reconnects via __relay/open.",
   "type": "module",
   "license": "MIT",
