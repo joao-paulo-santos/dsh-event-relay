@@ -131,6 +131,10 @@ curl -N 'http://127.0.0.1:3080/relay/events'
 Add `?topics=<prefixes>` to mirror a client's filter; `-N` makes curl stream
 instead of buffering.
 
-## Plugins dependent on dsh-event-relay
+## Dependencies
 
-*(none yet, list plugins that consume this relay here)*
+None
+
+## Plugins dependent on this
+
+- [dsh-granular-settings](https://github.com/joao-paulo-santos/dsh-granular-settings) — publishes doorbell-only change notifications for its scoped settings platform
