@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
 
+# Plugin run artifacts
+.dsh/
+
 # Logs
 *.log
 npm-debug.log*
